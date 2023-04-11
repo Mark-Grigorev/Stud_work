@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Test>
+
+<h1>Тесты</h1>
+<h2>Предмет</h2>
+<form id="QuestFormTeacher">
+    <label>Название вопроса</label>
+    <input id="NameQuest" type="text"/>
+    <label>Правильный вариант ответа</label>
+    <input id="CorrectAns" type="text"/>
+    <label>Первый ответ</label>
+    <input id="FirstQuest" type="text"/>
+    <label>Второй ответ</label>
+    <input id="SecondQuest" type="text"/>
+    <label>Третий ответ</label>
+    <input id="ThirdQuest" type="text"/>
+    <label>Четвертый ответ</label>
+    <input id="FourthQuest" type="text"/>
+    <input type="submit" value="Добавить вопрос"/>
+</form>
+<h3 id="Acces"></h3>
+<h2></h2>
+<a asp-action="GetAllTetst">Вывести все вопросы</a>
+<a asp-action="RemoveallTetsts">Скрыть все вопросы</a>
+<div>
+    <table>
+        <tr>
+            <td>Вопрос</td>
+            <td>Правильный ответ</td>
+            <td>Первый вариант</td>
+            <td>Второй вариант</td>
+            <td>Третий вариант</td>
+            <td>Четвертый вариант</td>
+            <td>Отображено</td>
+        </tr>
+    </table>
+</div>
+<div>
+    @foreach (var item in Model)
+            {
+        <div>
+            <table>
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.NameOfQuestion)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CorrectAnswer)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FQuest)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SQuest)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TQuest)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FoQuest)</td>
+                    <td>@Html.DisplayFor(modelItem => item.GetTest)</td>
+                    <td><a asp-action="GetOnceTest" asp-route-id="@item.Id">Вывести вопрос</a></td>
+                    <td><a asp-action="RemoveGetOnceTest" asp-route-id="@item.Id">Скрыть вопрос</a></td>
+                </tr>
+            </table>
+            
+        </div>
+            }
+</div>
+<script src="~/js/CreateQuest.js"></script>

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<TheSubject>
+
+<h1>Выебирте тест</h1>
+@foreach (var item in Model)
+{
+   
+<table>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameOfSubject)
+            <a asp-action="QuestPage" asp-route-id="@item.Id">Начать тест</a>
+        </td>
+    </tr>
+</table>
+    
+}

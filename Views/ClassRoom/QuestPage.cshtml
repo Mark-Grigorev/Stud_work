@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Test>
+
+@foreach (var item in Model)
+{
+
+<div class="QuestBox">
+    <form>
+        <table>
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NameOfQuestion)</td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="@item.Id">
+                        <option value="@Html.DisplayFor(modelItem => item.FQuest)">@Html.DisplayFor(modelItem => item.FQuest)</option>
+                        <option value="@Html.DisplayFor(modelItem => item.SQuest)">@Html.DisplayFor(modelItem => item.SQuest)</option>
+                        <option value="@Html.DisplayFor(modelItem => item.TQuest)">@Html.DisplayFor(modelItem => item.TQuest)</option>
+                        <option value="@Html.DisplayFor(modelItem => item.FoQuest)">@Html.DisplayFor(modelItem => item.FoQuest)</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><input type="button" onclick="Quest(@item.Id)" value="Ответить" /></td>
+            </tr>
+            <tr>
+                <td><h3 class="@item.Id"></h3></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+}
+@if(Model.Count() != 0)
+  {
+     <input type="button" onclick="Result()" value="Закончить тестирование!"/>
+  }
+<script src="~/js/TestQuest.js"></script>

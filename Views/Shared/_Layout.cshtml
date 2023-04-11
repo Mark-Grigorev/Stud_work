@@ -1,0 +1,128 @@
+﻿
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Menu</title>
+    <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="~/css/Menu.css" media="screen">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="~/js/MainPartialViews.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#GetAboutUs').click(function (e) {
+                $('#MainPartialViews').load('@Url.Action("AboutUsPage", "Home")')
+            });
+            $('#GetEducationPage').click(function (e) {
+                $('#MainPartialViews').load('@Url.Action("EducationPage", "Home")')
+            });
+            $('#GetAuthorizationPage').click(function (e) {
+                $('#MainPartialViews').load('@Url.Action("AuthorizationPage", "Home")')
+            });
+        });
+    </script>
+   
+    <script class="u-script" type="text/javascript" src="~/js/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.10.5, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <script type="application/ld+json">        {
+                "name": "",
+                "logo": "~/images/ico.png"
+        }</script>
+    <meta name="theme-color" content="#0151df">
+    <meta property="og:title" content="Menu">
+    <meta property="og:type" content="website">
+</head>
+<body class="u-body u-xl-mode">
+    <header class="u-clearfix u-gradient u-header u-header" id="sec-fad2">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <a asp-controller="Home" asp-action="MainPage" class="u-image u-logo u-image-1" data-image-width="767" data-image-height="609">
+                <img src="~/images/ico.png" class="u-logo-image u-logo-image-1">
+            </a>           
+            <nav class="u-dropdown-icon u-menu u-menu-dropdown u-offcanvas u-menu-1">
+                <div class="menu-collapse" style="font-size: 1.25rem; letter-spacing: 0px; text-transform: uppercase; font-weight: 500;">
+                    <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+                        <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+                        <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                            <g>
+
+                                <rect y="1" width="16" height="2"></rect>
+                                <rect y="7" width="16" height="2"></rect>
+                                <rect y="13" width="16" height="2"></rect>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+                <div class="u-custom-menu u-nav-container">
+                    <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
+                        <li class="u-nav-item">
+                            <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="#Menu(Dont_Remove)" style="padding: 20px 38px; text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Menu</a><div class="u-nav-popup">
+                                <ul class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-h-spacing-7 u-nav u-unstyled u-v-spacing-7 u-nav-2">
+                                    <li class="u-nav-item">
+                                        <a id="GetEducationPage" class="u-button-style u-hover-palette-4-light-2 u-nav-link" href="#">Education</a>
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a class="u-button-style u-hover-palette-4-light-2 u-nav-link" href="#">Test</a>
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a id="GetAboutUs" class="u-button-style u-hover-palette-4-light-2 u-nav-link" href="#">About Us</a>
+                                    </li>
+                                    @if (User.Identity.IsAuthenticated == false)
+                                    {
+                                    <li class="u-nav-item">
+                                        <a id="GetAuthorizationPage" class="u-button-style u-hover-palette-4-light-2 u-nav-link" href="#">Войти</a>
+                                    </li>
+                                    }
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                    <li class="u-nav-item">
+                                        <a asp-controller="Authorization" asp-action="Logout" class="u-button-style u-hover-palette-4-light-2 u-nav-link">Выйти</a>
+                                    </li>
+                                    }
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="u-custom-menu u-nav-container-collapse">
+                    <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                        <div class="u-inner-container-layout u-sidenav-overflow">
+                            <div class="u-menu-close"></div>
+                            <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3">
+                                <li class="u-nav-item">
+                                    <a class="u-button-style u-nav-link" href="#Menu(Dont_Remove)">Menu</a><div class="u-nav-popup">
+                                        <ul class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-h-spacing-7 u-nav u-unstyled u-v-spacing-7 u-nav-4">
+                                            <li class="u-nav-item">
+                                                <a class="u-button-style u-nav-link" href="#Education">Education</a>
+                                            </li>
+                                            <li class="u-nav-item">
+                                                <a class="u-button-style u-nav-link" href="#link_test">Test</a>
+                                            </li>
+                                            <li class="u-nav-item">
+                                                <a class="u-button-style u-nav-link" id="GetAboutUs" href="#About_Us">About Us</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--<script class="u-script" type="text/javascript" src="~/js/jquery-1.9.1.min.js" defer=""></script>-->
+    
+        <div id="MainPartialViews">
+            @RenderBody()
+        </div>
+    
+</body>
+
+</html>
